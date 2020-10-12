@@ -1,0 +1,18 @@
+#imagem de origem
+FROM ubuntu
+
+#instala pacotes
+RUN apt-get update
+RUN 
+RUN apt-get install default-jre
+RUN apt-get install default-jdk
+
+#copiar arquivo
+COPY ./app/fatorial.java
+
+#exp?e portas
+EXPOSE 8080
+
+#executa o arquivo
+RUN make /app
+CMD javac /app/fatorial.java
